@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "spacecraft:moon_plains",
+  "features": "spacecraft:moon_titanium_ore_placed",
+  "step": "underground_ores"
+}

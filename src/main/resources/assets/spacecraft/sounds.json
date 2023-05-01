@@ -1,0 +1,14 @@
+{
+  "entity.moon_wolf.ambient": {
+    "subtitle": "sounds.spacecraft.entity.moon_wolf.ambient",
+    "sounds": [
+      "spacecraft:entity/moon_wolf/ambient"
+    ]
+  },
+  "entity.moon_wolf.hurt": {
+    "subtitle": "sounds.spacecraft.entity.moon_wolf.hurt",
+    "sounds": [
+      "spacecraft:entity/moon_wolf/hurt"
+    ]
+  }
+}

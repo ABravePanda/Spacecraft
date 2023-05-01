@@ -1,0 +1,7 @@
+// 1.19.4	2023-04-24T19:50:49.1312347	Recipes
+7c2b5da097805b31b369a9833e0446a9dcd61f13 data/spacecraft/advancements/recipes/building_blocks/titanium_ingot.json
+d5fc6af079d4741a8d4ab4aafe4277db7a41abdf data/spacecraft/advancements/recipes/misc/titanium_block.json
+4a90eea9b75b0d44f217c330dcc9e45dbf0346f8 data/spacecraft/advancements/recipes/misc/titanium_ingot_from_smelting_raw_titanium.json
+51160c527a6957423111e234e7c8976021758a25 data/spacecraft/recipes/titanium_block.json
+0f9d1bb90738a0e45147178fb27c1ed388f6c35f data/spacecraft/recipes/titanium_ingot.json
+70e7eb48e72061f1dac3abe67b48ea6888cf232d data/spacecraft/recipes/titanium_ingot_from_smelting_raw_titanium.json

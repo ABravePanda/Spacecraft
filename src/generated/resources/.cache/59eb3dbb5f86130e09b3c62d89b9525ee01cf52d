@@ -1,0 +1,8 @@
+// 1.19.4	2023-04-30T13:07:34.7930008	Loot Tables
+4ea993eeac3cf855281aa21df7a0d74c9b03afed data/spacecraft/loot_tables/blocks/moon_gold_ore.json
+64f6cbe21dcb44ed45e3885944d67e512a9c412c data/spacecraft/loot_tables/blocks/moon_stone.json
+1fa2bef0be1c242583eeef971987dc72bc6798a4 data/spacecraft/loot_tables/blocks/moon_titanium_ore.json
+ed857efa81e802f9b31c1a3ebe95533f2fc367b1 data/spacecraft/loot_tables/blocks/oxygen_cable.json
+c545479ba57d5c805f364f916b73a06dc93750fc data/spacecraft/loot_tables/blocks/oxygen_collector.json
+361207bc006ad03714a222e3563c4c64c0371601 data/spacecraft/loot_tables/blocks/oxygen_tank.json
+d5b0e6e3bd49bbca1b71a1aa06cdfe89d4fe9a99 data/spacecraft/loot_tables/blocks/titanium_block.json

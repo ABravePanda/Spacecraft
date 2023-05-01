@@ -1,0 +1,62 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "spacecraft:block/oxygen_cable_core"
+      }
+    },
+    {
+      "when": {
+        "north": true
+      },
+      "apply": {
+        "model": "spacecraft:block/oxygen_cable_ext"
+      }
+    },
+    {
+      "when": {
+        "east": true
+      },
+      "apply": {
+        "model": "spacecraft:block/oxygen_cable_ext",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "south": true
+      },
+      "apply": {
+        "model": "spacecraft:block/oxygen_cable_ext",
+        "x": 180
+      }
+    },
+    {
+      "when": {
+        "west": true
+      },
+      "apply": {
+        "model": "spacecraft:block/oxygen_cable_ext",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "up": true
+      },
+      "apply": {
+        "model": "spacecraft:block/oxygen_cable_ext",
+        "x": 270
+      }
+    },
+    {
+      "when": {
+        "down": true
+      },
+      "apply": {
+        "model": "spacecraft:block/oxygen_cable_ext",
+        "x": 90
+      }
+    }
+  ]
+}

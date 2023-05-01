@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "spacecraft:moon_village",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "salt": 252857556,
+    "spacing": 29,
+    "separation": 9,
+    "type": "minecraft:random_spread"
+  }
+}

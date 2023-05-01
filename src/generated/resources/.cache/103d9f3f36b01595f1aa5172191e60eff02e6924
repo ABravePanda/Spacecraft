@@ -1,0 +1,5 @@
+// 1.19.4	2023-04-24T19:50:49.1317307	Registries
+c7ed7f4f1d069494ebe34d0b01fa909acd7c3247 data/spacecraft/worldgen/configured_feature/moon_gold_ore.json
+2ef353c1365d1aeb405f0ef97987c86514e26147 data/spacecraft/worldgen/configured_feature/moon_titanium_ore.json
+da8a6d5c2cd8e0a60c3d88ddc2553b6acf1de75c data/spacecraft/worldgen/placed_feature/moon_gold_ore_placed.json
+ea1f90a2fe7562bccfe31872f9416292a4bdd0ee data/spacecraft/worldgen/placed_feature/moon_titanium_ore_placed.json

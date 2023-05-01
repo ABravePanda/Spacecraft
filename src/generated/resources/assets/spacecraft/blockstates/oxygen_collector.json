@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "spacecraft:block/oxygen_collector",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "spacecraft:block/oxygen_collector"
+    },
+    "facing=south": {
+      "model": "spacecraft:block/oxygen_collector",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "spacecraft:block/oxygen_collector",
+      "y": 270
+    }
+  }
+}

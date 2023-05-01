@@ -1,0 +1,31 @@
+{
+  "item.spacecraft.raw_titanium": "Raw Titanium",
+  "item.spacecraft.titanium_ingot": "Titanium Ingot",
+
+  "item.spacecraft.space_helmet_v1" : "Space Helmet v1",
+  "item.spacecraft.space_chestplate_v1" : "Space Chestplate v1",
+  "item.spacecraft.space_legs_v1" : "Space Legs v1",
+  "item.spacecraft.space_boots_v1" : "Space Boots v1",
+
+  "item.spacecraft.oxygen_tank_small": "Small Oxygen Tank",
+  "item.spacecraft.oxygen_tank_medium": "Medium Oxygen Tank",
+  "item.spacecraft.oxygen_tank_large": "Large Oxygen Tank",
+  "item.spacecraft.oxygen_tank.lore": "%1$s / %2$s O2",
+
+  "block.spacecraft.titanium_block": "Titanium Block",
+
+  "block.spacecraft.moon_stone": "Moon Stone",
+  "block.spacecraft.moon_titanium_ore": "Moon Titanium Ore",
+  "block.spacecraft.moon_gold_ore": "Moon Gold Ore",
+
+  "block.spacecraft.oxygen_cable": "Oxygen Cable",
+  "block.spacecraft.oxygen_collector": "Oxygen Collector",
+  "block.spacecraft.oxygen_tank": "Oxygen Tank",
+
+  "entity.spacecraft.moon_wolf" : "Moon Wolf",
+
+  "sounds.spacecraft.entity.moon_wolf.ambient" : "Moon Wolf Ambient",
+  "sounds.spacecraft.entity.moon_wolf.hurt" : "Moon Wolf Hurting",
+
+  "creativemodetab.space_blocks": "SpaceCraft Blocks"
+}

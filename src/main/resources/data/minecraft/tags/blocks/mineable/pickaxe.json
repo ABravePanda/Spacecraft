@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "spacecraft:moon_titanium_ore",
+    "spacecraft:moon_stone",
+    "spacecraft:moon_gold_ore",
+    "spacecraft:oxygen_collector"
+  ]
+}
