@@ -90,10 +90,6 @@ public class IOxygenBlockEntity extends BlockEntity {
                     }
                 }
 
-                System.out.println("Outputs: " + masterCable.getOutputs(masterCable).size());
-                System.out.println("Inputs: " + masterCable.getInputs(masterCable).size());
-
-
                 //Handle All Outputs (Things putting oxygen into cables)
                 for (BlockPos output : masterCable.getOutputs(masterCable)) {
                     IOxygenBlockEntity outputEntity = (IOxygenBlockEntity) level.getBlockEntity(output);

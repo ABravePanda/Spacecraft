@@ -35,7 +35,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class OxygenCollectorBlockEntity extends IOxygenBlockEntity implements MenuProvider {
 
-    private final int OXYGEN_CREATION = 50;
+    private final int OXYGEN_CREATION = 1;
     private final int OXYGEN_OUTPUT_RATE = 1;
     private static final int ENERGY_REQUIREMENT = 50;
     private final int ENERGY_CAPACITY = 50000;
@@ -237,5 +237,9 @@ public class OxygenCollectorBlockEntity extends IOxygenBlockEntity implements Me
         this.progress = 0;
     }
 
+
+    public int getOxygenCreationRate(OxygenCollectorBlockEntity oxygenCollectorBlockEntity) {
+        return oxygenCollectorBlockEntity.OXYGEN_CREATION;
+    }
 
 }

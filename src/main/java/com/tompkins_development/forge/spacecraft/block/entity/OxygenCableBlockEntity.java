@@ -34,8 +34,8 @@ public class OxygenCableBlockEntity extends IOxygenBlockEntity {
     public OxygenCableBlockEntity(BlockPos blockPos, BlockState state) {
         super(ModBlockEntities.OXYGEN_CABLE.get(), blockPos, state);
         this.setOxygenCapacity(this,100);
-        this.setOxygenInputRate(this,1);
-        this.setOxygenOutputRate(this,1);
+        this.setOxygenInputRate(this,100);
+        this.setOxygenOutputRate(this,100);
         init();
         master = new BlockPos(-10000,-10000,-10000);
         if(inputs == null)

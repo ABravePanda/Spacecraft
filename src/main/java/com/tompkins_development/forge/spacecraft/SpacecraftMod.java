@@ -114,3 +114,10 @@ public class SpacecraftMod {
         }
     }
 }
+
+//TODO List
+/*
+1. Remove Oxygen from cable and split evenly between each output/input
+2. Make sure output/input wont go into itself
+3. Make input/output from the smallest of the input/output rates
+ */

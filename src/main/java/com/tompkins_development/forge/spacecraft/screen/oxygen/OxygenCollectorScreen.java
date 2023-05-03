@@ -47,8 +47,8 @@ public class OxygenCollectorScreen  extends AbstractContainerScreen<OxygenCollec
 
         renderEnergyAreaTooltips(pPoseStack, pMouseX, pMouseY, x, y);
         renderOxygenAreaTooltips(pPoseStack, pMouseX, pMouseY, x, y);
-        drawStringNoShadow(pPoseStack, this.font, Component.literal("Energy Input: 25 FE/s"), 19, 53, 0x444444);
-        drawStringNoShadow(pPoseStack, this.font, Component.literal("Oxygen Input: 20 O2/s"), 19, 63, 0x444444);
+        drawStringNoShadow(pPoseStack, this.font, Component.literal("Energy Input: 20 FE/s"), 19, 53, 0x444444);
+        drawStringNoShadow(pPoseStack, this.font, Component.literal("Oxygen Input: " + menu.blockEntity.getOxygenCreationRate(menu.getBlockEntity()) + " O2/s"), 19, 63, 0x444444);
     }
 
     private void renderOxygenAreaTooltips(PoseStack pPoseStack, int pMouseX, int pMouseY, int x, int y) {
