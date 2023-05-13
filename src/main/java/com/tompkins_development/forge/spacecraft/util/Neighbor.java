@@ -45,12 +45,4 @@ public class Neighbor {
         return getLevel().getBlockEntity(getPos());
     }
 
-    public enum Direction {
-        NORTH,
-        SOUTH,
-        EAST,
-        WEST,
-        TOP,
-        BOTTOM;
-    }
 }

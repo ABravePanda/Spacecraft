@@ -121,15 +121,21 @@ public class OxygenCableBlock extends BaseEntityBlock {
         BlockPos blockpos2 = blockpos.east();
         BlockPos blockpos3 = blockpos.south();
         BlockPos blockpos4 = blockpos.west();
+        BlockPos blockpos5 = blockpos.above();
+        BlockPos blockpos6 = blockpos.below();
         BlockState blockstate = blockgetter.getBlockState(blockpos1);
         BlockState blockstate1 = blockgetter.getBlockState(blockpos2);
         BlockState blockstate2 = blockgetter.getBlockState(blockpos3);
         BlockState blockstate3 = blockgetter.getBlockState(blockpos4);
+        BlockState blockstate4 = blockgetter.getBlockState(blockpos5);
+        BlockState blockstate6 = blockgetter.getBlockState(blockpos6);
         return super.getStateForPlacement(context)
                 .setValue(NORTH, Boolean.valueOf(this.connectsTo(context.getLevel(), blockpos1, blockstate, Direction.SOUTH)))
                 .setValue(EAST, Boolean.valueOf(this.connectsTo(context.getLevel(), blockpos2,blockstate1, Direction.WEST)))
                 .setValue(SOUTH, Boolean.valueOf(this.connectsTo(context.getLevel(), blockpos3,blockstate2, Direction.NORTH)))
-                .setValue(WEST, Boolean.valueOf(this.connectsTo(context.getLevel(), blockpos4,blockstate3,  Direction.EAST)));
+                .setValue(WEST, Boolean.valueOf(this.connectsTo(context.getLevel(), blockpos4,blockstate3,  Direction.EAST)))
+                .setValue(UP, Boolean.valueOf(this.connectsTo(context.getLevel(), blockpos5,blockstate4,  Direction.UP)))
+                .setValue(DOWN, Boolean.valueOf(this.connectsTo(context.getLevel(), blockpos6,blockstate6,  Direction.DOWN)));
     }
 
     public boolean connectsTo(Level level,  BlockPos pos, BlockState blockState, Direction direction) {

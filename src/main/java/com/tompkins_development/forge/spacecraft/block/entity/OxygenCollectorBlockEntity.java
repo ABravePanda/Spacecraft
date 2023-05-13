@@ -35,7 +35,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class OxygenCollectorBlockEntity extends IOxygenBlockEntity implements MenuProvider {
 
-    private final int OXYGEN_CREATION = 1;
+    private final int OXYGEN_CREATION = 30;
     private final int OXYGEN_OUTPUT_RATE = 1;
     private static final int ENERGY_REQUIREMENT = 50;
     private final int ENERGY_CAPACITY = 50000;
@@ -168,7 +168,7 @@ public class OxygenCollectorBlockEntity extends IOxygenBlockEntity implements Me
         IOxygenBlockEntity.tick(level, blockPos, blockState, entity);
         if(level.isClientSide) return;
 
-        if(isAboveRedstoneBlock(entity, blockPos))
+        //if(isAboveRedstoneBlock(entity, blockPos))
             entity.ENERGY_STORAGE.receiveEnergy(100, false);
 
         if(hasOxygenTankItem(entity)) {

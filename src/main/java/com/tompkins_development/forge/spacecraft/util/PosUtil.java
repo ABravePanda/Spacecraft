@@ -3,6 +3,7 @@ package com.tompkins_development.forge.spacecraft.util;
 import com.tompkins_development.forge.spacecraft.block.entity.IOxygenBlockEntity;
 import com.tompkins_development.forge.spacecraft.block.entity.OxygenCableBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -14,46 +15,46 @@ public class PosUtil {
 
     public static List<Neighbor> getNeighboringBlocks(Level level, BlockPos pos) {
         List<Neighbor> neighbors = new ArrayList<>();
-        neighbors.add(new Neighbor(level, pos.north(), Neighbor.Direction.NORTH));
-        neighbors.add(new Neighbor(level, pos.south(), Neighbor.Direction.SOUTH));
-        neighbors.add(new Neighbor(level, pos.east(), Neighbor.Direction.EAST));
-        neighbors.add(new Neighbor(level, pos.west(), Neighbor.Direction.WEST));
-        neighbors.add(new Neighbor(level, pos.above(), Neighbor.Direction.TOP));
-        neighbors.add(new Neighbor(level, pos.below(), Neighbor.Direction.BOTTOM));
+        neighbors.add(new Neighbor(level, pos.north(), Direction.NORTH));
+        neighbors.add(new Neighbor(level, pos.south(), Direction.SOUTH));
+        neighbors.add(new Neighbor(level, pos.east(), Direction.EAST));
+        neighbors.add(new Neighbor(level, pos.west(), Direction.WEST));
+        neighbors.add(new Neighbor(level, pos.above(), Direction.UP));
+        neighbors.add(new Neighbor(level, pos.below(), Direction.DOWN));
         return neighbors;
     }
 
     public static List<Neighbor> getNeighboringBlocksByType(Level level, BlockPos pos, Block block) {
         List<Neighbor> neighbors = new ArrayList<>();
         if(level.getBlockState(pos.north()).getBlock() == block)
-            neighbors.add(new Neighbor(level, pos.north(), Neighbor.Direction.NORTH));
+            neighbors.add(new Neighbor(level, pos.north(), Direction.NORTH));
         if(level.getBlockState(pos.south()).getBlock() == block)
-        neighbors.add(new Neighbor(level, pos.south(), Neighbor.Direction.SOUTH));
+        neighbors.add(new Neighbor(level, pos.south(), Direction.SOUTH));
         if(level.getBlockState(pos.east()).getBlock() == block)
-        neighbors.add(new Neighbor(level, pos.east(), Neighbor.Direction.EAST));
+        neighbors.add(new Neighbor(level, pos.east(), Direction.EAST));
         if(level.getBlockState(pos.west()).getBlock() == block)
-        neighbors.add(new Neighbor(level, pos.west(), Neighbor.Direction.WEST));
+        neighbors.add(new Neighbor(level, pos.west(), Direction.WEST));
         if(level.getBlockState(pos.above()).getBlock() == block)
-        neighbors.add(new Neighbor(level, pos.above(), Neighbor.Direction.TOP));
+        neighbors.add(new Neighbor(level, pos.above(), Direction.UP));
         if(level.getBlockState(pos.below()).getBlock() == block)
-        neighbors.add(new Neighbor(level, pos.below(), Neighbor.Direction.BOTTOM));
+        neighbors.add(new Neighbor(level, pos.below(), Direction.DOWN));
         return neighbors;
     }
 
     public static List<Neighbor> getNeighboringBlocksForOxygen(Level level, BlockPos pos) {
         List<Neighbor> neighbors = new ArrayList<>();
         if(level.getBlockEntity(pos.north()) instanceof IOxygenBlockEntity)
-            neighbors.add(new Neighbor(level, pos.north(), Neighbor.Direction.NORTH));
+            neighbors.add(new Neighbor(level, pos.north(), Direction.NORTH));
         if(level.getBlockEntity(pos.south()) instanceof IOxygenBlockEntity)
-            neighbors.add(new Neighbor(level, pos.south(), Neighbor.Direction.SOUTH));
+            neighbors.add(new Neighbor(level, pos.south(), Direction.SOUTH));
         if(level.getBlockEntity(pos.east()) instanceof IOxygenBlockEntity)
-            neighbors.add(new Neighbor(level, pos.east(), Neighbor.Direction.EAST));
+            neighbors.add(new Neighbor(level, pos.east(), Direction.EAST));
         if(level.getBlockEntity(pos.west()) instanceof IOxygenBlockEntity)
-            neighbors.add(new Neighbor(level, pos.west(), Neighbor.Direction.WEST));
+            neighbors.add(new Neighbor(level, pos.west(), Direction.WEST));
         if(level.getBlockEntity(pos.above()) instanceof IOxygenBlockEntity)
-            neighbors.add(new Neighbor(level, pos.above(), Neighbor.Direction.TOP));
+            neighbors.add(new Neighbor(level, pos.above(), Direction.UP));
         if(level.getBlockEntity(pos.below()) instanceof IOxygenBlockEntity)
-            neighbors.add(new Neighbor(level, pos.below(), Neighbor.Direction.BOTTOM));
+            neighbors.add(new Neighbor(level, pos.below(), Direction.DOWN));
         return neighbors;
     }
 

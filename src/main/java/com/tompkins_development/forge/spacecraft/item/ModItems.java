@@ -1,8 +1,6 @@
 package com.tompkins_development.forge.spacecraft.item;
 
 import com.tompkins_development.forge.spacecraft.SpacecraftMod;
-import com.tompkins_development.forge.spacecraft.item.custom.LargeOxygenTankItem;
-import com.tompkins_development.forge.spacecraft.item.custom.MediumOxygenTankItem;
 import com.tompkins_development.forge.spacecraft.item.custom.SmallOxygenTankItem;
 import com.tompkins_development.forge.spacecraft.item.custom.SpaceSuitV1ArmorItem;
 import net.minecraft.sounds.SoundEvents;
@@ -27,12 +25,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> OXYGEN_TANK_SMALL = ITEMS.register("oxygen_tank_small",
             () -> new SmallOxygenTankItem());
-    public static final RegistryObject<Item> OXYGEN_TANK_MEDIUM = ITEMS.register("oxygen_tank_medium",
-            () -> new MediumOxygenTankItem());
-    public static final RegistryObject<Item> OXYGEN_TANK_LARGE = ITEMS.register("oxygen_tank_large",
-            () -> new LargeOxygenTankItem());
-    public static final RegistryObject<Item> OXYGEN_TANK_EMPTY = ITEMS.register("oxygen_tank_empty",
-            () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<ArmorItem> SPACE_HELMET_V1 = ITEMS.register("space_helmet_v1",
             () -> new SpaceSuitV1ArmorItem(ArmorTiers.TITANIUM, Type.HELMET, new Item.Properties()));

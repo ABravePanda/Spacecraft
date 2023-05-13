@@ -21,11 +21,13 @@
   "block.spacecraft.oxygen_cable": "Oxygen Cable",
   "block.spacecraft.oxygen_collector": "Oxygen Collector",
   "block.spacecraft.oxygen_tank": "Oxygen Tank",
+  "block.spacecraft.oxygen_compressor": "Oxygen Compressor",
 
   "entity.spacecraft.moon_wolf" : "Moon Wolf",
 
   "sounds.spacecraft.entity.moon_wolf.ambient" : "Moon Wolf Ambient",
   "sounds.spacecraft.entity.moon_wolf.hurt" : "Moon Wolf Hurting",
 
-  "creativemodetab.space_blocks": "SpaceCraft Blocks"
+  "creativemodetab.space_blocks": "SpaceCraft Blocks",
+  "creativemodetab.oxygen_blocks": "Oxygen Blocks"
 }

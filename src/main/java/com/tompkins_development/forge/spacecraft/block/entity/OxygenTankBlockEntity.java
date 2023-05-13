@@ -1,6 +1,7 @@
 package com.tompkins_development.forge.spacecraft.block.entity;
 
 import com.tompkins_development.forge.spacecraft.block.ModBlocks;
+import com.tompkins_development.forge.spacecraft.block.OxygenTankBlock;
 import com.tompkins_development.forge.spacecraft.capabilities.IOxygenStorage;
 import com.tompkins_development.forge.spacecraft.capabilities.ModCapabilities;
 import com.tompkins_development.forge.spacecraft.item.custom.OxygenTankItem;
@@ -38,11 +39,11 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class OxygenTankBlockEntity extends IOxygenBlockEntity implements MenuProvider {
+public class OxygenTankBlockEntity extends IOxygenBlockEntity implements MenuProvider  {
 
     public OxygenTankBlockEntity(BlockPos blockPos, BlockState state) {
         super(ModBlockEntities.OXYGEN_TANK.get(), blockPos, state);
-        this.setOxygenCapacity(this,10000);
+        this.setOxygenCapacity(this,5000);
         this.setOxygenInputRate(this,200);
         this.setOxygenOutputRate(this,200);
         init();
@@ -63,6 +64,7 @@ public class OxygenTankBlockEntity extends IOxygenBlockEntity implements MenuPro
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
         return super.getCapability(cap, side);
     }
+
 
     @Override
     protected void saveAdditional(CompoundTag tag) {

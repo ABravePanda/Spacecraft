@@ -8,6 +8,9 @@ import com.tompkins_development.forge.spacecraft.screen.renderer.InfoAreaType;
 import com.tompkins_development.forge.spacecraft.screen.renderer.OxygenInfoArea;
 import com.tompkins_development.forge.spacecraft.util.MouseUtil;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.StateSwitchingButton;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -21,6 +24,7 @@ public class OxygenCollectorScreen  extends AbstractContainerScreen<OxygenCollec
             new ResourceLocation(SpacecraftMod.MOD_ID, "textures/gui/oxygen_collector.png");
     private EnergyInfoArea energyInfoArea;
     private OxygenInfoArea oxygenInfoArea;
+
 
     public OxygenCollectorScreen(OxygenCollectorMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
@@ -49,6 +53,7 @@ public class OxygenCollectorScreen  extends AbstractContainerScreen<OxygenCollec
         renderOxygenAreaTooltips(pPoseStack, pMouseX, pMouseY, x, y);
         drawStringNoShadow(pPoseStack, this.font, Component.literal("Energy Input: 20 FE/s"), 19, 53, 0x444444);
         drawStringNoShadow(pPoseStack, this.font, Component.literal("Oxygen Input: " + menu.blockEntity.getOxygenCreationRate(menu.getBlockEntity()) + " O2/s"), 19, 63, 0x444444);
+
     }
 
     private void renderOxygenAreaTooltips(PoseStack pPoseStack, int pMouseX, int pMouseY, int x, int y) {

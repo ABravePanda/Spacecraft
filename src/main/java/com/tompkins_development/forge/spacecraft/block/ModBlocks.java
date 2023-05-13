@@ -50,6 +50,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> OXYGEN_TANK = registerBlock("oxygen_tank",
             ()-> new OxygenTankBlock());
 
+    public static final RegistryObject<Block> OXYGEN_COMPRESSOR = registerBlock("oxygen_compressor",
+            ()-> new OxygenCompressorBlock());
+
 //    public static final RegistryObject<Block> DEEPSLATE_BLACK_OPAL_ORE = registerBlock("deepslate_black_opal_ore",
 //            () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
 //                    .strength(8f).requiresCorrectToolForDrops(), UniformInt.of(2, 6)));

@@ -1,3 +1,3 @@
 {
-  "parent": "spacecraft:block/oxygen_tank"
+  "parent": "spacecraft:block/tank/oxygen_tank_on_is"
 }

@@ -1,0 +1,99 @@
+{
+  "variants": {
+    "outputdirection=north,inputdirection=south": {
+      "model": "spacecraft:block/tank/oxygen_tank_on_is"
+    },
+    "outputdirection=north,inputdirection=east": {
+      "model": "spacecraft:block/tank/oxygen_tank_on_ie"
+    },
+    "outputdirection=north,inputdirection=west": {
+      "model": "spacecraft:block/tank/oxygen_tank_on_iw"
+    },
+    "outputdirection=north,inputdirection=up": {
+      "model": "spacecraft:block/tank/oxygen_tank_on_iu"
+    },
+    "outputdirection=north,inputdirection=down": {
+      "model": "spacecraft:block/tank/oxygen_tank_on_id"
+    },
+
+    "outputdirection=south,inputdirection=north": {
+      "model": "spacecraft:block/tank/oxygen_tank_os_in"
+    },
+    "outputdirection=south,inputdirection=east": {
+      "model": "spacecraft:block/tank/oxygen_tank_os_ie"
+    },
+    "outputdirection=south,inputdirection=west": {
+      "model": "spacecraft:block/tank/oxygen_tank_os_iw"
+    },
+    "outputdirection=south,inputdirection=up": {
+      "model": "spacecraft:block/tank/oxygen_tank_os_iu"
+    },
+    "outputdirection=south,inputdirection=down": {
+      "model": "spacecraft:block/tank/oxygen_tank_os_id"
+    },
+
+    "outputdirection=east,inputdirection=north": {
+      "model": "spacecraft:block/tank/oxygen_tank_oe_in"
+    },
+    "outputdirection=east,inputdirection=south": {
+      "model": "spacecraft:block/tank/oxygen_tank_oe_is"
+    },
+    "outputdirection=east,inputdirection=west": {
+      "model": "spacecraft:block/tank/oxygen_tank_oe_iw"
+    },
+    "outputdirection=east,inputdirection=up": {
+      "model": "spacecraft:block/tank/oxygen_tank_oe_iu"
+    },
+    "outputdirection=east,inputdirection=down": {
+      "model": "spacecraft:block/tank/oxygen_tank_oe_id"
+    },
+
+    "outputdirection=west,inputdirection=north": {
+      "model": "spacecraft:block/tank/oxygen_tank_ow_in"
+    },
+    "outputdirection=west,inputdirection=south": {
+      "model": "spacecraft:block/tank/oxygen_tank_ow_is"
+    },
+    "outputdirection=west,inputdirection=east": {
+      "model": "spacecraft:block/tank/oxygen_tank_ow_ie"
+    },
+    "outputdirection=west,inputdirection=up": {
+      "model": "spacecraft:block/tank/oxygen_tank_ow_iu"
+    },
+    "outputdirection=west,inputdirection=down": {
+      "model": "spacecraft:block/tank/oxygen_tank_ow_id"
+    },
+
+    "outputdirection=up,inputdirection=north": {
+      "model": "spacecraft:block/tank/oxygen_tank_ou_in"
+    },
+    "outputdirection=up,inputdirection=south": {
+      "model": "spacecraft:block/tank/oxygen_tank_ou_is"
+    },
+    "outputdirection=up,inputdirection=east": {
+      "model": "spacecraft:block/tank/oxygen_tank_ou_ie"
+    },
+    "outputdirection=up,inputdirection=west": {
+      "model": "spacecraft:block/tank/oxygen_tank_ou_iw"
+    },
+    "outputdirection=up,inputdirection=down": {
+      "model": "spacecraft:block/tank/oxygen_tank_ou_id"
+    },
+
+    "outputdirection=down,inputdirection=north": {
+      "model": "spacecraft:block/tank/oxygen_tank_od_in"
+    },
+    "outputdirection=down,inputdirection=south": {
+      "model": "spacecraft:block/tank/oxygen_tank_od_is"
+    },
+    "outputdirection=down,inputdirection=east": {
+      "model": "spacecraft:block/tank/oxygen_tank_od_ie"
+    },
+    "outputdirection=down,inputdirection=west": {
+      "model": "spacecraft:block/tank/oxygen_tank_od_iw"
+    },
+    "outputdirection=down,inputdirection=up": {
+      "model": "spacecraft:block/tank/oxygen_tank_od_iu"
+    }
+  }
+}

@@ -21,9 +21,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.RAW_TITANIUM);
         simpleItem(ModItems.TITANIUM_INGOT);
         simpleItem(ModItems.OXYGEN_TANK_SMALL);
-        simpleItem(ModItems.OXYGEN_TANK_MEDIUM);
-        simpleItem(ModItems.OXYGEN_TANK_LARGE);
-        simpleItem(ModItems.OXYGEN_TANK_EMPTY);
         armorItem(ModItems.SPACE_HELMET_V1);
         armorItem(ModItems.SPACE_CHESTPLATE_V1);
         armorItem(ModItems.SPACE_LEGS_V1);

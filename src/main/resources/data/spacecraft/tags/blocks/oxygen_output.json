@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "spacecraft:oxygen_collector"
+    "spacecraft:oxygen_collector",
+    "spacecraft:oxygen_tank"
   ]
 }

@@ -3,6 +3,8 @@ package com.tompkins_development.forge.spacecraft.networking;
 import com.tompkins_development.forge.spacecraft.SpacecraftMod;
 import com.tompkins_development.forge.spacecraft.networking.packet.EnergySyncS2CPacket;
 import com.tompkins_development.forge.spacecraft.networking.packet.OxygenSyncS2CPacket;
+import com.tompkins_development.forge.spacecraft.networking.packet.TankStateSyncC2SPacket;
+import com.tompkins_development.forge.spacecraft.networking.packet.TankStateUpdateCableC2SPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -39,6 +41,18 @@ public class ModMessages {
                 .decoder(OxygenSyncS2CPacket::new)
                 .encoder(OxygenSyncS2CPacket::toBytes)
                 .consumerMainThread(OxygenSyncS2CPacket::handle)
+                .add();
+
+        net.messageBuilder(TankStateSyncC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(TankStateSyncC2SPacket::new)
+                .encoder(TankStateSyncC2SPacket::toBytes)
+                .consumerMainThread(TankStateSyncC2SPacket::handle)
+                .add();
+
+        net.messageBuilder(TankStateUpdateCableC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(TankStateUpdateCableC2SPacket::new)
+                .encoder(TankStateUpdateCableC2SPacket::toBytes)
+                .consumerMainThread(TankStateUpdateCableC2SPacket::handle)
                 .add();
     }
 

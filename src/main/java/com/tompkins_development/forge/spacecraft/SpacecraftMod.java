@@ -16,6 +16,7 @@ import com.tompkins_development.forge.spacecraft.world.structures.ModStructures;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -75,24 +76,28 @@ public class SpacecraftMod {
 //            event.accept(ModBlocks.BLACK_OPAL_ORE);
         }
 
-
+        if(event.getTab() == ModCreativeModeTabs.OXYGEN_TAB) {
+            event.accept(ModItems.OXYGEN_TANK_SMALL);
+            event.accept(ModBlocks.OXYGEN_CABLE);
+            event.accept(ModBlocks.OXYGEN_TANK);
+            event.accept(ModBlocks.OXYGEN_COLLECTOR);
+            event.accept(ModBlocks.OXYGEN_COMPRESSOR);
+        }
 
         if(event.getTab() == ModCreativeModeTabs.BLOCKS_TAB) {
             event.accept(ModItems.RAW_TITANIUM);
             event.accept(ModItems.TITANIUM_INGOT);
             event.accept(ModItems.OXYGEN_TANK_SMALL);
-            event.accept(ModItems.OXYGEN_TANK_MEDIUM);
-            event.accept(ModItems.OXYGEN_TANK_LARGE);
-            event.accept(ModItems.OXYGEN_TANK_EMPTY);
+
             event.accept(ModBlocks.OXYGEN_CABLE);
             event.accept(ModBlocks.OXYGEN_TANK);
+            event.accept(ModBlocks.OXYGEN_COLLECTOR);
+            event.accept(ModBlocks.OXYGEN_COMPRESSOR);
 
             event.accept(ModBlocks.MOON_STONE);
             event.accept(ModBlocks.MOON_TITANIUM_ORE);
             event.accept(ModBlocks.TITANIUM_BLOCK);
             event.accept(ModBlocks.MOON_GOLD_ORE);
-
-            event.accept(ModBlocks.OXYGEN_COLLECTOR);
 
             event.accept(ModItems.SPACE_HELMET_V1);
             event.accept(ModItems.SPACE_CHESTPLATE_V1);
@@ -115,9 +120,9 @@ public class SpacecraftMod {
     }
 }
 
-//TODO List
+//TODO list
 /*
-1. Remove Oxygen from cable and split evenly between each output/input
-2. Make sure output/input wont go into itself
-3. Make input/output from the smallest of the input/output rates
+1. Make packet to send data from screen to world
+2. Limit speed of cables?
  */
+

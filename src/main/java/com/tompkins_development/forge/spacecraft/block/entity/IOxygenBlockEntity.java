@@ -1,5 +1,6 @@
 package com.tompkins_development.forge.spacecraft.block.entity;
 
+import com.tompkins_development.forge.spacecraft.block.OxygenTankBlock;
 import com.tompkins_development.forge.spacecraft.capabilities.IOxygenStorage;
 import com.tompkins_development.forge.spacecraft.capabilities.ModCapabilities;
 import com.tompkins_development.forge.spacecraft.networking.ModMessages;
@@ -23,11 +24,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IOxygenBlockEntity extends BlockEntity {
+public class IOxygenBlockEntity extends BlockEntity  {
 
     private int oxygenCapacity;
     private int oxygenInputRate;
     private int oxygenOutputRate;
+    private int oxygenCapacityRemaining;
 
     private LazyOptional<IOxygenStorage> lazyOxygenHandler = LazyOptional.empty();
 
@@ -65,62 +67,78 @@ public class IOxygenBlockEntity extends BlockEntity {
             if(masterCable != null) {
 
                 //Make Sure Input/Output Still Exist
-                for (BlockPos output : new ArrayList<>(masterCable.getOutputs(masterCable)))
-                    if(!(level.getBlockEntity(output) instanceof IOxygenBlockEntity))  {
+                for (BlockPos output : new ArrayList<>(masterCable.getOutputs(masterCable))) {
+                    if (!(level.getBlockEntity(output) instanceof IOxygenBlockEntity)) {
                         masterCable.removeOutput(masterCable, output);
                         cableBlockEntity.removeOutput(cableBlockEntity, output);
                     }
-                for (BlockPos input : new ArrayList<>(masterCable.getInputs(masterCable)))
-                    if(!(level.getBlockEntity(input) instanceof IOxygenBlockEntity)) {
+                }
+                for (BlockPos input : new ArrayList<>(masterCable.getInputs(masterCable))) {
+                    if (!(level.getBlockEntity(input) instanceof IOxygenBlockEntity)) {
                         masterCable.removeInput(masterCable, input);
                         cableBlockEntity.removeInput(cableBlockEntity, input);
                     }
+                }
 
 
                 //Double check all inputs and outputs
                 List<Neighbor> neighbors = PosUtil.getNeighboringBlocksForOxygen(level, blockPos);
                 for (Neighbor neighbor : neighbors) {
                     if (neighbor.getBlockState().is(ModTags.OXYGEN_INPUT)) {
-                        if (!masterCable.getInputs(masterCable).contains(neighbor.getPos()))
-                            masterCable.addInput(masterCable, neighbor.getPos());
+                        if (!masterCable.getInputs(masterCable).contains(neighbor.getPos())) {
+                            IOxygenBlockEntity blockEntity = (IOxygenBlockEntity) level.getBlockEntity(neighbor.getPos());
+                            blockEntity.getCapability(ModCapabilities.OXYGEN, neighbor.getDirection()).ifPresent((a) -> {
+                                if(blockEntity instanceof OxygenTankBlockEntity) {
+                                    if(neighbor.getDirection().getOpposite() == blockEntity.getBlockState().getValue(OxygenTankBlock.inputDirection))
+                                        masterCable.addInput(masterCable, neighbor.getPos());
+                                } else
+                                    masterCable.addInput(masterCable, neighbor.getPos());
+                            });
+
+                        }
                     }
                     if (neighbor.getBlockState().is(ModTags.OXYGEN_OUTPUT)) {
-                        if (!masterCable.getOutputs(masterCable).contains(neighbor.getPos()))
-                            masterCable.addOutput(masterCable, neighbor.getPos());
+                        if (!masterCable.getOutputs(masterCable).contains(neighbor.getPos())) {
+                            IOxygenBlockEntity blockEntity = (IOxygenBlockEntity) level.getBlockEntity(neighbor.getPos());
+                            blockEntity.getCapability(ModCapabilities.OXYGEN, neighbor.getDirection()).ifPresent((a) -> {
+                                if(blockEntity instanceof OxygenTankBlockEntity) {
+                                    if(neighbor.getDirection().getOpposite() == blockEntity.getBlockState().getValue(OxygenTankBlock.outputDirection))
+                                        masterCable.addOutput(masterCable, neighbor.getPos());
+                                } else
+                                    masterCable.addOutput(masterCable, neighbor.getPos());
+                            });
+                        }
                     }
                 }
 
-                //Handle All Outputs (Things putting oxygen into cables)
-                for (BlockPos output : masterCable.getOutputs(masterCable)) {
-                    IOxygenBlockEntity outputEntity = (IOxygenBlockEntity) level.getBlockEntity(output);
-                    masterCable.getCapability(ModCapabilities.OXYGEN).ifPresent((cableOxygen) -> {
-                        outputEntity.getCapability(ModCapabilities.OXYGEN).ifPresent((blockOxygen) -> {
-                           if(cableHasSpace(cableOxygen, masterCable.getOxygenInputRate(masterCable)) && blockHasEnoughOxygen(blockOxygen)) {
-                               int oxygen = getOxygenToChangeOutput(masterCable, cableOxygen, blockOxygen);
-                               blockOxygen.extractOxygen(oxygen, false);
-                               cableOxygen.receiveOxygen(oxygen, false);
-                               setChanged(level, blockPos, blockState);
-                           }
-                        });
+                for(BlockPos outputPos : masterCable.getOutputs(masterCable)) {
+                    if(masterCable.getInputs(masterCable).size() == 0) continue;
+                    int leftover = 0;
+                    final int[] outputOxygenPresent = new int[1];
+                    IOxygenBlockEntity outputEntity = (IOxygenBlockEntity) level.getBlockEntity(outputPos);
+
+                    outputEntity.getCapability(ModCapabilities.OXYGEN).ifPresent((outputOxygen) -> {
+                       outputOxygenPresent[0] = outputOxygen.getOxygenStored();
                     });
+
+                    int amountToOutput = (Math.min(outputEntity.getOxygenOutputRate(outputEntity) + leftover, outputOxygenPresent[0] + leftover)) / masterCable.getInputs(masterCable).size();
+                    for(BlockPos inputPos : masterCable.getInputs(masterCable)) {
+                        IOxygenBlockEntity inputEntity = (IOxygenBlockEntity) level.getBlockEntity(inputPos);
+                        int amountToPutIn = Math.min(amountToOutput,Math.min(inputEntity.getOxygenCapacityRemaining(inputEntity), inputEntity.getOxygenInputRate(inputEntity)));
+                        leftover = amountToOutput - amountToPutIn;
+
+                        outputEntity.getCapability(ModCapabilities.OXYGEN).ifPresent((outputOxygen) -> {
+                            inputEntity.getCapability(ModCapabilities.OXYGEN).ifPresent((inputOxygen) -> {
+                                if(outputEntity.getBlockPos() != inputEntity.getBlockPos()) {
+                                    outputOxygen.extractOxygen(amountToPutIn, false);
+                                    inputOxygen.receiveOxygen(amountToPutIn, false);
+                                }
+                            });
+                        });
+                    }
                 }
 
-                //Handle All Inputs (Things pulling oxygen from cables)
-                for (BlockPos input : masterCable.getInputs(masterCable)) {
-                    IOxygenBlockEntity inputEntity = (IOxygenBlockEntity) level.getBlockEntity(input);
-                    masterCable.getCapability(ModCapabilities.OXYGEN).ifPresent((cableOxygen) -> {
-                        inputEntity.getCapability(ModCapabilities.OXYGEN).ifPresent((blockOxygen) -> {
-                            if(objectHasSpace(blockOxygen, masterCable) && cableHasOxygen(cableOxygen)) {
-                                int oxygen = getOxygenToChangeInput(masterCable, cableOxygen, blockOxygen);
-                                cableOxygen.extractOxygen(oxygen, false);
-                                blockOxygen.receiveOxygen(oxygen, false);
-                                setChanged(level, blockPos, blockState);
-                            }
-                        });
-                    });
-                }
             }
-            else System.out.println("Master is null @ " + blockPos);
         }
     }
 
@@ -213,5 +231,13 @@ public class IOxygenBlockEntity extends BlockEntity {
 
     public void setOxygenOutputRate(IOxygenBlockEntity entity, int oxygenOutputRate) {
         entity.oxygenOutputRate = oxygenOutputRate;
+    }
+
+    public int getOxygenCapacityRemaining(IOxygenBlockEntity entity) {
+        return entity.getOxygenStorage().getMaxOxygenStored()-entity.getOxygenStorage().getOxygenStored();
+    }
+
+    public LazyOptional<IOxygenStorage> getLazyOxygenHandler() {
+        return lazyOxygenHandler;
     }
 }

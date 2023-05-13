@@ -8,4 +8,7 @@ import static net.minecraftforge.common.capabilities.CapabilityManager.get;
 
 public class ModCapabilities {
     public static final Capability<IOxygenStorage> OXYGEN = get(new CapabilityToken<>(){});
+    public static final Capability<IOxygenStorage> OXYGEN_IN = get(new CapabilityToken<>(){});
+    public static final Capability<IOxygenStorage> OXYGEN_OUT = get(new CapabilityToken<>(){});
+
 }
